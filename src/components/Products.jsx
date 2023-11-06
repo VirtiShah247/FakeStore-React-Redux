@@ -67,21 +67,21 @@ export const Products = () => {
 
   const ShowProducts = () => {
     return <Fragment>
-      <div className="d-flex justify-content-center mb-5">
-        <Button className="btn btn-outline-dark me-2" onClick={() => setFilterData(data)}>All</Button>
-        <Button className="btn btn-outline-dark me-2" onClick={() => filterProduct("men's clothing")}>Men's Clothing</Button>
-        <Button className="btn btn-outline-dark me-2" onClick={() => filterProduct("women's clothing")}>Women's Clothing</Button>
-        <Button className="btn btn-outline-dark me-2" onClick={() => filterProduct("jewelery")}>Jewelery</Button>
-        <Button className="btn btn-outline-dark me-2" onClick={() => filterProduct("electronics")}>Electronics</Button>
+      <div className="d-flex flex-wrap justify-content-center mb-5">
+        <Button className="btn btn-outline-dark me-2 mt-2" onClick={() => setFilterData(data)}>All</Button>
+        <Button className="btn btn-outline-dark me-2 mt-2" onClick={() => filterProduct("men's clothing")}>Men's Clothing</Button>
+        <Button className="btn btn-outline-dark me-2 mt-2" onClick={() => filterProduct("women's clothing")}>Women's Clothing</Button>
+        <Button className="btn btn-outline-dark me-2 mt-2" onClick={() => filterProduct("jewelery")}>Jewelery</Button>
+        <Button className="btn btn-outline-dark me-2 mt-2" onClick={() => filterProduct("electronics")}>Electronics</Button>
       </div>
       {
         filterData.map((product) => {
           return (
             <Fragment>
-              <MDBCard className="col-3 mb-5">
+              <MDBCard className="col-lg-3 col-md-4 mb-5">
                 <Link to={`/products/${product.id}`} className="text-black">
                   <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-                    <img src={product.image} height="280rem" width="250rem" fluid alt='...' />
+                    <img src={product.image} height="280rem" width="220rem" fluid alt='...' />
                   </MDBRipple>
                   <MDBCardBody>
                     <MDBCardTitle>{product.title}</MDBCardTitle>
