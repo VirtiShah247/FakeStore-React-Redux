@@ -1,18 +1,9 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import { Header } from './Header';
-import {
-  MDBCard,
-  MDBCardTitle,
-  MDBCardText,
-  MDBCardBody,
-  MDBCardImage,
-  MDBRow,
-  MDBCol
-} from 'mdb-react-ui-kit';
+import { MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import Button from 'react-bootstrap/esm/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCart } from '../action';
+import { addCart, setProduct, setLoading } from '../action';
 
 export const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -20,25 +11,25 @@ export const ProductDetails = () => {
   const state = useSelector(state => state.authReducer.isAuth);
   const {id} = useParams();
   console.log("Id is ", id);
-  const [ prodData, setProdData ] = useState([]);
-  const [ loading, setLoading ] = useState(false);
+  const prodData = useSelector(state => state.prodReducer.prodData);
+  const loading = useSelector(state => state.loadingReducer.loading);
   const addProduct = (product) => {
     state ? dispatch(addCart(product)) : navigate("/login");
   }
 
   useEffect(()=>{
     const getProdDetail = async () => {
-      setLoading(true);
+      dispatch(setLoading("PROLOADING", true));
       try{
         const response = await fetch(`https://fakestoreapi.com/products/${id}`);
         const responeData = await response.json();
-        setProdData(responeData);
-        setLoading(false);
+        dispatch(setProduct("ADDPRODUCT", responeData));
+        dispatch(setLoading("PROLOADING", false));
 
       }
       catch (err){
         console.log("Fetch error is ", err);
-        setLoading(false);
+        dispatch(setLoading("PROLOADING", false));
       }
 
     }

@@ -1,14 +1,12 @@
-import { Fragment, useState, useEffect, Component } from "react";
+import { Fragment, useState, useEffect } from "react";
 import {
   MDBCard,
   MDBCardBody,
   MDBCardTitle,
   MDBCardText,
-  MDBCardImage,
   MDBBtn,
   MDBRipple
 } from 'mdb-react-ui-kit';
-import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import Button from "react-bootstrap/esm/Button";
 import { Link, useNavigate } from "react-router-dom";
@@ -39,7 +37,6 @@ export const Products = () => {
           setData(data);
           setFilterData(data);
           setLoading(false);
-          compoundMounted = false;
         }
       } catch (error) {
         console.error("Error fetching data:", error);

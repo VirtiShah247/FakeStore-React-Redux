@@ -1,11 +1,15 @@
 import { combineReducers } from "redux";
 import { AuthReducer } from "./authReducer";
 import { CartReducer } from "./cartReducer";
+import { ProReducer } from "./proReducer";
 export const initialState = {
     isAuth : false,
-    cart: []
+    cart: [],
+    prodData: [],
+    loading: false
 }
 export const rootReducers = combineReducers({
     authReducer: AuthReducer,
-    cartReducer: CartReducer
+    cartReducer: CartReducer,
+    proReducer: ProReducer
 });

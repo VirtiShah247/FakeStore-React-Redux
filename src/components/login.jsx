@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Fragment } from 'react';
-import { Header } from './Header';
 import { useNavigate } from 'react-router-dom';
 import { handleLogin } from '../action';
 
@@ -21,7 +20,7 @@ export const Login = () => {
             <MDBRow>
 
             <MDBCol col='10' md='6'>
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid" alt="Sample image" />
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid" alt="Sample" />
             </MDBCol>
 
             <MDBCol col='4' md='6'>

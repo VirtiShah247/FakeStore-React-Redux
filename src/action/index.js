@@ -10,6 +10,19 @@ export const handleLogout = () => {
     }
 }
 
+export const setProduct = (type,product) => {
+    return {
+        type: type,
+        payload: product
+    }
+}
+
+export const setLoading = (type,value) => {
+    return {
+        type: type,
+        payload: value
+    }
+}
 export const addCart = (product) => {
     return {
         type: "ADDCART",
