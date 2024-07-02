@@ -34,5 +34,4 @@ export const CartReducer = (state = initialState, action) => {
         default:
             return state;
     }
-    console.log("state is ", state);
 }

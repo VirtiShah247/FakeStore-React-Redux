@@ -34,7 +34,7 @@ export const ProductDetails = () => {
 
     }
     getProdDetail()
-  }, [id]);
+  }, [id, dispatch]);
 
 
   const Loading = () => {

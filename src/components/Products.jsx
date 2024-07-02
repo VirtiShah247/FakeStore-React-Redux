@@ -47,7 +47,7 @@ export const Products = () => {
     getProducts();
 
    
-  }, [])
+  }, [compoundMounted])
 
   const Loading = () => {
     return <>
