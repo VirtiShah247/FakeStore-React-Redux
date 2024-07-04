@@ -34,7 +34,7 @@ export const ProductDetails = () => {
       }
     }
     fetchProductDetails();
-  }, [dispatch, id]);
+  }, [dispatch, id, prodData]);
 
   const addProducts = (product) => {
     state ? dispatch(addCart(product)) : navigate("/login");
