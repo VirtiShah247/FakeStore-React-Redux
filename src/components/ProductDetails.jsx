@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import Button from 'react-bootstrap/esm/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCart, setProduct } from '../action';
+import { addCart, addProduct } from '../action';
 
 export const ProductDetails = () => {
   const [loading, setLoading] = useState(true);
@@ -23,6 +23,7 @@ export const ProductDetails = () => {
         console.log("responsedata: " + responeData);
         dispatch(addProduct(responeData));
         setLoading(false);
+        console.log("PRODDATA ----- " + prodData);
         // dispatch(setLoading("PROLOADING", false));
         // 
       }
@@ -31,11 +32,11 @@ export const ProductDetails = () => {
         // setLoading(false);
         // dispatch(setLoading("PROLOADING", false));
       }
-    };
+    }
     fetchProductDetails();
   }, [dispatch, id]);
 
-  const addProduct = (product) => {
+  const addProducts = (product) => {
     state ? dispatch(addCart(product)) : navigate("/login");
   }
 
@@ -73,7 +74,7 @@ export const ProductDetails = () => {
                     }
                   </MDBCardText>
                   <MDBCardText>
-                    <Button className='me-2' onClick={() => addProduct(prodData)}>Add to Cart</Button>
+                    <Button className='me-2' onClick={() => addProducts(prodData)}>Add to Cart</Button>
                     <Button>Go to Cart</Button>
                   </MDBCardText>
                 </MDBCardBody>
