@@ -11,4 +11,37 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.flex{
+  display: flex;
+  align-items: center;
+}
+.text-lg{
+  font-size: x-large;
+}
+.inline{
+  display: inline;
+}
+.productCard{
+  background-color:white;
+  box-shadow: 1px 1px 4px black; 
+  width: 270px !important;
+  /* border: 2px solid black;  */
+}
+.button{
+  background-color: #3b71ca;
+color: white;
+border: none;
+border-radius: 5px;
+padding: 2px 10px !important;
+margin: 7px 0;
+}
+.button:disabled{
+  background-color: #3b71ca;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.filterButton{
+  margin: 5px;
+  border: 1px solid black;
+}
 

@@ -1,6 +1,7 @@
-export const handleLogin = () => {
+export const handleLogin = (userDetails) => {
    return {
-    type: "LOGIN"
+    type: "LOGIN",
+    payload: userDetails
     }
 }
 
@@ -10,19 +11,13 @@ export const handleLogout = () => {
     }
 }
 
-export const setProduct = (type,product) => {
+export const addProduct = (responeData) => {
     return {
-        type: type,
-        payload: product
+        type: "ADDPRODUCT",
+        payload: responeData
     }
 }
 
-export const setLoading = (type,value) => {
-    return {
-        type: type,
-        payload: value
-    }
-}
 export const addCart = (product) => {
     return {
         type: "ADDCART",
@@ -33,6 +28,18 @@ export const addCart = (product) => {
 export const delCart = (product) => {
     return {
         type: "DELCART",
+        payload: product
+    }
+}
+export const increaseQuantity = (product) => {
+    return {
+        type: "INCREASEQUANTITY",
+        payload: product
+    }
+}
+export const decreaseQuantity = (product) => {
+    return {
+        type: "DECREASEQUANTITY",
         payload: product
     }
 }

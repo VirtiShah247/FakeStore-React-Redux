@@ -13,8 +13,9 @@ export const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const auth = useSelector(state => state.authReducer.isAuth);
-  const state = useSelector(state => state.cartReducer.cart);
-  console.log("Cart state is ", state);
+  const cartState = useSelector(state => state.cartReducer.cart);
+  const totalProductInCart = useSelector(state => state.cartReducer.totalCartProduct);
+  console.log("Cart state is ", cartState);
   console.log("Auth is ", auth);
 
   const logout = () => {
@@ -25,7 +26,7 @@ export const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand as={Link} to="/">Shopping Cart</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">FakeStore Shopping</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Nav>
           {
@@ -36,13 +37,13 @@ export const Header = () => {
             </NavDropdown.Item>
           </NavDropdown> :
 
-              <Nav.Link as = {Link} to='login'  eventKey={2} style={{ color: "#fff" }}>
+              <Nav.Link as = {Link} to='login'  eventKey={1} style={{ color: "#fff" }}>
                 <Button>Login</Button>
               </Nav.Link>
 
           }
-          <Nav.Link eventKey={2}>
-            <Button>Cart <span className='fw-bold'>{state.length === 0 ? null : state.length}</span></Button>
+          <Nav.Link as = {Link} to='cart' eventKey={2}>
+            <Button>Cart <span className='fw-bold'>{totalProductInCart}</span></Button>
           </Nav.Link>
         </Nav>
       </Container>
