@@ -8,7 +8,7 @@ import { addCart, addProduct } from '../action';
 export const ProductDetails = () => {
   const [loading, setLoading] = useState(true);
   const state = useSelector(state => state.authReducer.isAuth);
-  const prodData = useSelector(state => state.prodReducer?.prodData);
+  const prodData = useSelector(state => state.prodReducer.prodData);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
