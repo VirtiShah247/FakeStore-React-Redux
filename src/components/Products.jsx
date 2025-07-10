@@ -62,13 +62,18 @@ export const Products = () => {
   const filterProduct = (category) => {
     console.log("Category is ", category);
     setFilterCategory(category);
-    setFilterData(data.filter((product) => product.category === category));
+    if(category === "All") {
+      setFilterData(data);
+    }
+    else {
+      setFilterData(data.filter((product) => product.category === category));
+    }
   }
 
   const ShowProducts = () => {
     return <Fragment>
         <div className="d-flex flex-wrap justify-content-center mb-5">
-          <Button className= {`me-2 mt-2 ${filterCategory !== "All" && "btn btn-outline-dark"}`} onClick={() => setFilterCategory("All") && setFilterData(data)}>All</Button>
+          <Button className= {`me-2 mt-2 ${filterCategory !== "All" && "btn btn-outline-dark"}`} onClick={() => filterProduct("All")}>All</Button>
           <Button className={`me-2 mt-2 ${filterCategory !== "men's clothing" && "btn btn-outline-dark"}`} onClick={() => filterProduct("men's clothing")}>Men's Clothing</Button>
           <Button className={`me-2 mt-2 ${filterCategory !== "women's clothing" && "btn btn-outline-dark"}`} onClick={() => filterProduct("women's clothing")}>Women's Clothing</Button>
           <Button className={`me-2 mt-2 ${filterCategory !== "jewelery" && "btn btn-outline-dark"}`} onClick={() => filterProduct("jewelery")}>Jewelery</Button>
